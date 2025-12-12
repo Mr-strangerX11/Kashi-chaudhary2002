@@ -12,6 +12,12 @@ export default function Contact() {
     setLoading(true)
     setStatus({ type: '', message: '' })
 
+    console.log('Form data:', {
+      user_name: formRef.current.user_name.value,
+      user_email: formRef.current.user_email.value,
+      message: formRef.current.message.value,
+    })
+
     // EmailJS credentials configured
     emailjs
       .sendForm(
@@ -20,14 +26,17 @@ export default function Contact() {
         formRef.current
       )
       .then(
-        () => {
+        (response) => {
+          console.log('Email sent successfully:', response)
           setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' })
           formRef.current.reset()
           setLoading(false)
         },
         (error) => {
           console.error('EmailJS error details:', error)
-          setStatus({ type: 'error', message: 'Failed to send. Check browser console for details. You can email me directly at kashichaudhary2002@gmail.com' })
+          console.error('Error code:', error.status)
+          console.error('Error text:', error.text)
+          setStatus({ type: 'error', message: `Failed to send: ${error.text}. Email me directly at kashichaudhary2002@gmail.com` })
           setLoading(false)
         }
       )
