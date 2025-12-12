@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX } from 'react-icons/fi'
 import ThemeToggle from './ThemeToggle'
@@ -9,15 +9,21 @@ import logoDark from '../logo.png'
 export default function NavBar({ sections, theme, onToggleTheme }) {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   const handleNavClick = (id) => {
     // If on blog page, navigate to home first
-    if (pathname === '/blog') {
-      window.location.href = '/#' + id
-      return
+    if (pathname !== '/') {
+      navigate('/')
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    } else {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     setOpen(false)
   }
 
