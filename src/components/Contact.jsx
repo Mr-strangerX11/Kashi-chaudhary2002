@@ -21,7 +21,7 @@ export default function Contact() {
     // EmailJS credentials configured
     emailjs
       .sendForm(
-        'service_2bkvyof',
+        'service_6uaj1sk',
         'template_jccwej5',
         formRef.current
       )
