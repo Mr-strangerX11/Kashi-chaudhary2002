@@ -23,7 +23,8 @@ export default function Contact() {
       .sendForm(
         'service_6uaj1sk',
         'template_jccwej5',
-        formRef.current
+        formRef.current,
+        'KD8PYSkFbR4TgHijc'
       )
       .then(
         (response) => {
