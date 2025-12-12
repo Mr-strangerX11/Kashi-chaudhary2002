@@ -44,8 +44,8 @@ export default function Contact() {
           />
           <div className="space-y-3 text-slate-700 dark:text-slate-200">
             <p>Email: <a className="text-primary" href="mailto:kashichaudhary2002@gmail.com">kashichaudhary2002@gmail.com</a></p>
-            <p>GitHub: <a className="text-primary" href="#">github.com/username</a></p>
-            <p>LinkedIn: <a className="text-primary" href="#">linkedin.com/in/username</a></p>
+            <p>GitHub: <a className="text-primary" href="#">github.com/Mr-strangerX11</a></p>
+            <p>LinkedIn: <a className="text-primary" href="#">linkedin.com/in/stranger-x21</a></p>
           </div>
         </div>
 
