@@ -13,8 +13,8 @@ export default function Contact() {
     setStatus({ type: '', message: '' })
 
     console.log('Form data:', {
-      user_name: formRef.current.user_name.value,
-      user_email: formRef.current.user_email.value,
+      from_name: formRef.current.from_name.value,
+      from_email: formRef.current.from_email.value,
       message: formRef.current.message.value,
     })
 
@@ -68,7 +68,7 @@ export default function Contact() {
             <label className="space-y-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Name
               <input
-                name="user_name"
+                name="from_name"
                 required
                 disabled={loading}
                 className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-3 py-2 disabled:opacity-50"
@@ -79,7 +79,7 @@ export default function Contact() {
               Email
               <input
                 type="email"
-                name="user_email"
+                name="from_email"
                 required
                 disabled={loading}
                 className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 px-3 py-2 disabled:opacity-50"

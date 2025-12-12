@@ -7,9 +7,9 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} All rights reserved.</p>
         </div>
         <div className="flex flex-wrap gap-3 text-primary">
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-          <a href="#contact">Contact</a>
+          <a href="https://github.com/Mr-strangerX11">GitHub</a>
+          <a href="https://linkedin.com/in/stranger-x21">LinkedIn</a>
+          <a href="contact">Contact</a>
         </div>
       </div>
     </footer>

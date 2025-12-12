@@ -11,6 +11,11 @@ export default function NavBar({ sections, theme, onToggleTheme }) {
   const { pathname } = useLocation()
 
   const handleNavClick = (id) => {
+    // If on blog page, navigate to home first
+    if (pathname === '/blog') {
+      window.location.href = '/#' + id
+      return
+    }
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     setOpen(false)
@@ -19,7 +24,16 @@ export default function NavBar({ sections, theme, onToggleTheme }) {
   return (
     <header className="sticky top-0 z-30 backdrop-blur bg-white/80 dark:bg-slate-900/70 border-b border-slate-200/60 dark:border-slate-800/60">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:py-4">
-        <Link to="/" className="flex items-center gap-2 font-semibold text-lg text-primary">
+        <Link 
+          to="/" 
+          onClick={(e) => {
+            if (pathname === '/') {
+              e.preventDefault()
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
+          }}
+          className="flex items-center gap-2 font-semibold text-lg text-primary hover:opacity-80 transition-opacity"
+        >
           <img src={theme === 'dark' ? logoDark : logoLight} alt="Logo" className="h-9 w-9 rounded-full object-cover" />
           <span className="text-slate-900 dark:text-slate-100">Kashi Chaudhary</span>
         </Link>

@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": "https://mr-strangerx11.github.io/Kashi-chaudhary2002",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
